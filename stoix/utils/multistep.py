@@ -94,7 +94,6 @@ def batch_truncated_generalized_advantage_estimation(
     )
 
     target_values = values[:-1] + advantage_t
-    target_values -= values[-1, :].reshape(1,-1)
 
     if not time_major:
         advantage_t = jnp.transpose(advantage_t, (1, 0))
